@@ -6,9 +6,19 @@ require './node'
 
 class Futomaki
   def self.extract_list_page(page, &)
-    node = TreeConstructor.new.build(&)
+    extractor(page, &).extract_list_page
+  end
 
-    extractor = Extractor.new(page, node)
-    extractor.extract
+  def self.extract_detail_page(page, &)
+    root_node = Node.new('root', nil, &)
+
+    extractor(page, root_node, &).extract_detail_page
+  end
+
+  private
+
+  def self.extractor(page, root_node = nil, &)
+    node = root_node || TreeConstructor.new.build(&)
+    Extractor.new(page, node)
   end
 end
