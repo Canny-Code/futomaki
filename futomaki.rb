@@ -18,7 +18,7 @@ class Futomaki
   private
 
   def self.extractor(page, root_node = nil, &)
-    node = root_node || TreeConstructor.new.build(&)
+    node = TreeConstructor.new(root_node).build(&)
     Extractor.new(page, node)
   end
 end

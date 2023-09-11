@@ -1,6 +1,6 @@
 class TreeConstructor
-  def initialize
-    @root_node = nil
+  def initialize(root_node = nil)
+    @root_node = root_node
   end
 
   def method_missing(method_name, *args, &)
