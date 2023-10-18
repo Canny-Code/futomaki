@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require './futomaki'
 
-class TestFutomaki < Minitest::Test
+class HTMLExtractorTest < Minitest::Test
   def test_extract_detail_page
-    body = File.read('test/fixtures/detail_page.html')
+    body = File.read('test/fixtures/html/detail_page.html')
 
     scraped_data = {
       "author": "George Orwell",
@@ -23,7 +23,7 @@ class TestFutomaki < Minitest::Test
   end
 
   def test_extract_list_page
-    body = File.read('test/fixtures/list_page.html')
+    body = File.read('test/fixtures/html/list_page.html')
 
     scraped_data = [
       {
@@ -51,7 +51,7 @@ class TestFutomaki < Minitest::Test
   end
 
   def test_non_existent_detail_page_element
-    body = File.read('test/fixtures/detail_page.html')
+    body = File.read('test/fixtures/html/detail_page.html')
 
     scraped_data = {
       "no_match": ""
@@ -65,7 +65,7 @@ class TestFutomaki < Minitest::Test
   end
 
   def test_non_existent_repeating_pattern
-    body = File.read('test/fixtures/list_page.html')
+    body = File.read('test/fixtures/html/list_page.html')
 
     scraped_data = []
 
@@ -79,7 +79,7 @@ class TestFutomaki < Minitest::Test
   end
 
   def test_existing_repeating_pattern_with_no_data_inside
-    body = File.read('test/fixtures/list_page.html')
+    body = File.read('test/fixtures/html/list_page.html')
 
     scraped_data = [
       {

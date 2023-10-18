@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require './tree_constructor'
 require './html_extractor'
+require './json_extractor'
 require './node'
 
 class Futomaki
@@ -19,7 +20,7 @@ class Futomaki
 
   def self.extractor(page, type:, root_node: nil, &)
     node = TreeConstructor.new(root_node).build(&)
-    
+
     const_get("#{type}Extractor").new(page, node)
   end
 end

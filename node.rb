@@ -1,14 +1,14 @@
 class Node
-  attr_reader :name, :xpath_query, :child_nodes
+  attr_reader :name, :query, :child_nodes
 
-  def initialize(name, xpath_query, &block)
+  def initialize(name, query, &block)
     @name = name
-    @xpath_query = xpath_query
+    @query = query
     @block = block
     @child_nodes = []
   end
 
-  def add_child(name, xpath_query)
-    @child_nodes << Node.new(name, xpath_query)
+  def add_child(name, query)
+    @child_nodes << Node.new(name, query)
   end
 end
