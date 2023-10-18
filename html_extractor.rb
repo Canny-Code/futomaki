@@ -1,4 +1,4 @@
-class Extractor
+class HTMLExtractor
   def initialize(page, node)
     @doc = Nokogiri::HTML(page)
     @node = node
